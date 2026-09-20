@@ -1,12 +1,17 @@
-dir <!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Esto hace que la página se vea bien en celulares, ajustando el ancho a la pantalla -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>City Hunter · Clientes Particulares</title>
   </head>
   <body>
+    <!-- Este div empieza vacío. React lo llena con toda la interfaz una vez arranca. -->
     <div id="root"></div>
+
+    <!-- Aquí es donde entra React a la jugada: carga main.jsx, que es el que
+         busca el div de arriba y dibuja ahí adentro todo lo que armamos. -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

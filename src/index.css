@@ -1,3 +1,6 @@
+/* Aquí definimos "variables" con los colores y valores que se repiten
+   en todo el proyecto. Así, si mañana quieres cambiar el color principal,
+   lo cambias una sola vez aquí y se actualiza en todos lados. */
 :root {
   --color-black: #0a0a0a;
   --color-bg: #ffffff;
@@ -9,10 +12,16 @@
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
+/* Esto aplica a TODOS los elementos de la página.
+   Hace que cuando le pongas un ancho o un padding a algo, ese padding
+   se cuente por dentro y no se sume aparte (evita que las cosas se
+   descuadren sin que entiendas por qué). */
 * {
   box-sizing: border-box;
 }
 
+/* Estilos base de toda la página: qué letra usar, de qué color el texto
+   y el fondo. Todo lo demás hereda esto salvo que se diga lo contrario. */
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -20,17 +29,23 @@ body {
   background: var(--color-bg);
 }
 
+/* Este es el contenedor de TODA la app (Navbar + contenido + Footer).
+   flex-direction: column hace que esos tres bloques se apilen uno debajo
+   del otro, y min-height: 100vh asegura que ocupe toda la pantalla aunque
+   haya poco contenido (para que el Footer no quede pegado a la mitad). */
 .app-shell {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* flex: 1 hace que esta parte "estire" y ocupe todo el espacio que sobra
+   entre el Navbar y el Footer, sin importar cuánto contenido tenga. */
 .app-content {
   flex: 1;
 }
 
-/* Navbar */
+/* Navbar (la barra de arriba) */
 .navbar {
   padding: 24px 48px;
   border-bottom: 1px solid var(--color-border);
@@ -53,10 +68,10 @@ body {
   font-size: 0.9rem;
 }
 
-/* Layout */
+/* Layout general de las páginas */
 .page {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 700px;  /* que el contenido no se estire demasiado en pantallas grandes */
+  margin: 0 auto;     /* y que quede centrado */
   padding: 48px 24px;
 }
 
@@ -72,7 +87,7 @@ body {
   color: var(--color-text-muted);
 }
 
-/* Buttons */
+/* Botones */
 .btn {
   display: inline-block;
   padding: 12px 22px;
@@ -90,11 +105,11 @@ body {
   color: #fff;
 }
 
-/* Forms */
+/* Formularios (usado en SoporteTecnico.jsx) */
 .form-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16px; /* espacio entre cada campo, sin tener que ponerle margin a cada uno */
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 28px;
@@ -114,11 +129,11 @@ body {
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid var(--color-border);
-  font-family: inherit;
+  font-family: inherit; /* que usen la misma letra del resto de la página, no la del navegador */
   font-size: 0.95rem;
 }
 
-/* Confirmation */
+/* Pantalla de confirmación (cuando ya se generó el ticket) */
 .confirmation-card {
   max-width: 520px;
   margin: 0 auto;
@@ -128,11 +143,12 @@ body {
   padding: 40px;
 }
 
+/* El círculo verde con el check (✓) */
 .confirmation-icon {
   width: 56px;
   height: 56px;
-  line-height: 56px;
-  border-radius: 50%;
+  line-height: 56px; /* mismo valor que la altura, así el ✓ queda centrado verticalmente */
+  border-radius: 50%; /* esto es lo que lo vuelve un círculo perfecto */
   background: #dcfce7;
   color: #16a34a;
   font-size: 1.6rem;
@@ -140,7 +156,7 @@ body {
 }
 
 .confirmation-details {
-  text-align: left;
+  text-align: left; /* aunque la tarjeta está centrada, estos datos se leen mejor alineados a la izquierda */
   background: var(--color-bg-soft);
   border-radius: var(--radius);
   padding: 20px;
@@ -156,7 +172,7 @@ body {
   margin: 6px;
 }
 
-/* Footer */
+/* Footer (pie de página) */
 .footer {
   text-align: center;
   padding: 24px;
@@ -170,6 +186,8 @@ body {
   font-size: 0.75rem;
 }
 
+/* Ajuste para pantallas de celular: le bajamos el padding al navbar
+   para que no se coma tanto espacio en pantallas angostas. */
 @media (max-width: 768px) {
   .navbar {
     padding: 20px;
