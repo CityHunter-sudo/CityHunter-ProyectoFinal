@@ -1,0 +1,16 @@
+{
+  "name": "city-hunter-backend",
+  "version": "1.0.0",
+  "description": "API y modelos de datos de City Hunter (MongoDB + Mongoose)",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0",
+    "dotenv": "^16.4.5",
+    "bcryptjs": "^2.4.3"
+  }
+}
